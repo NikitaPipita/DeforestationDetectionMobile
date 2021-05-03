@@ -1,4 +1,4 @@
-package com.example.deforestationdetectionmobile
+package com.example.deforestationdetectionmobile.models
 
 import org.json.JSONObject
 import kotlin.properties.Delegates

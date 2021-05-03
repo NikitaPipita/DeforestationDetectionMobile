@@ -1,4 +1,4 @@
-package com.example.deforestationdetectionmobile
+package com.example.deforestationdetectionmobile.models
 
 import kotlin.properties.Delegates
 

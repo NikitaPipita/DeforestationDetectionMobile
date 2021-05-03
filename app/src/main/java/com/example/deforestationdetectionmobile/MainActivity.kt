@@ -11,12 +11,14 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.deforestationdetectionmobile.models.UserInfo
+import com.example.deforestationdetectionmobile.presentation.iot.IotsList
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
-    lateinit var emailEditText: EditText
-    lateinit var passwordEditText: EditText
-    lateinit var loginButton: Button
+    private lateinit var emailEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var loginButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("POST", "starting")
         val queue = Volley.newRequestQueue(this)
-        val url = "https://deforestation-proj.herokuapp.com/"
+        val url = "https://deforestation-proj.herokuapp.com/sessions"
         val postData = JSONObject()
         postData.put("email", emailEditText.text.toString())
         postData.put("password", passwordEditText.text.toString())
@@ -61,8 +63,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun enterFunctionality() {
         if (UserInfo.role != "locked") {
-//            val intent = Intent(this, MainRoutePage::class.java)
-//            startActivity(intent)
+            val intent = Intent(this, IotsList::class.java)
+            startActivity(intent)
         }
     }
 }
