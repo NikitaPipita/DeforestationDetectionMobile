@@ -10,6 +10,5 @@ class UserInfo {
         var role by Delegates.notNull<String>()
         var accessToken by Delegates.notNull<String>()
         var refreshToken by Delegates.notNull<String>()
-
     }
 }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.iot.AddActivity">
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,28 +13,19 @@
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints">
 
-        <EditText
-            android:id="@+id/emailEditText"
+        <Button
+            android:id="@+id/addGroupButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints"
-            android:inputType="textEmailAddress"
-            android:hint="Email"/>
-
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints"
-            android:inputType="textPassword"
-            android:hint="Password"/>
+            android:onClick="onAddGroup"
+            android:text="Add Group"/>
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/addIotButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="login"
-            android:text="Login"/>
+            android:onClick="onAddIot"
+            android:text="Add IoT"/>
 
     </LinearLayout>
 

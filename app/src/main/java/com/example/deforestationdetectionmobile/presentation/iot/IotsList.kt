@@ -1,6 +1,8 @@
 package com.example.deforestationdetectionmobile.presentation.iot
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +13,6 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.deforestationdetectionmobile.R
-import com.example.deforestationdetectionmobile.models.Group
 import com.example.deforestationdetectionmobile.models.Iot
 import com.example.deforestationdetectionmobile.models.UserInfo
 import org.json.JSONArray
@@ -24,7 +25,6 @@ class IotsList : AppCompatActivity() {
     private lateinit var listView: ListView
 
     private var iots: MutableList<Iot> = ArrayList()
-    private var groups: MutableList<Group> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,6 @@ class IotsList : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         getIots(true)
-        getGroups(true)
     }
 
     private fun getIots(acceptRefresh: Boolean) {
@@ -85,51 +84,6 @@ class IotsList : AppCompatActivity() {
         requestQueue.add(jsonObjectRequest)
     }
 
-    private fun getGroups(acceptRefresh: Boolean) {
-        val url = "https://deforestation-proj.herokuapp.com/groups"
-
-        val jsonResponses: MutableList<Group> = ArrayList()
-
-        val requestQueue = Volley.newRequestQueue(this)
-
-        val jsonObjectRequest = object : StringRequest(
-            Request.Method.GET,
-            url,
-            Response.Listener<String> { response ->
-                try {
-                    val jsonArray = JSONArray(response)
-                    for (i in 0 until jsonArray.length()) {
-                        val jsonObject = jsonArray.getJSONObject(i)
-                        jsonResponses.add(Group(jsonObject))
-                    }
-                } catch (e: JSONException) {
-                    e.printStackTrace()
-                }
-                groups = jsonResponses
-            },
-            Response.ErrorListener { error ->
-                error.printStackTrace()
-            }
-        ) {
-            override fun getHeaders(): MutableMap<String, String> {
-                val headers = HashMap<String, String>()
-                headers["Authorization"] = "Bearer " + UserInfo.accessToken
-                return headers
-            }
-
-            override fun parseNetworkResponse(response: NetworkResponse): Response<String>? {
-                val mStatusCode = response.statusCode
-                if (mStatusCode in 400..499 && acceptRefresh) {
-                    refreshToken()
-                    getGroups(false)
-                }
-                return super.parseNetworkResponse(response)
-            }
-        }
-
-        requestQueue.add(jsonObjectRequest)
-    }
-
     private fun refreshToken() {
         val url = "https://deforestation-proj.herokuapp.com/refresh"
         val postData = JSONObject()
@@ -167,5 +121,10 @@ class IotsList : AppCompatActivity() {
             intArrayOf(android.R.id.text1, android.R.id.text2)
         )
         listView.adapter = adapter
+    }
+
+    fun addNew(view: View) {
+        val intent = Intent(this, AddActivity::class.java)
+        startActivity(intent)
     }
 }
