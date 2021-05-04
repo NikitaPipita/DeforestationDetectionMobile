@@ -1,8 +1,10 @@
 package com.example.deforestationdetectionmobile.presentation.iot
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class ActiveIotsList : AppCompatActivity() {
@@ -38,6 +43,24 @@ class ActiveIotsList : AppCompatActivity() {
         if (UserInfo.role == "observer") {
             addFab.visibility = FloatingActionButton.GONE
         }
+
+        listView.onItemClickListener =
+            AdapterView.OnItemClickListener {
+                    parent, view, position, id ->
+                val uri: String =
+                    java.lang.String.format(
+                        Locale.ENGLISH,
+                        "geo:%f,%f?z=%d&q=%f,%f (%s)",
+                        iots[id.toInt()].latitude,
+                        iots[id.toInt()].longitude,
+                        10,
+                        iots[id.toInt()].latitude,
+                        iots[id.toInt()].longitude,
+                        "coordinates"
+                    )
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                startActivity(intent)
+            }
     }
 
     override fun onResume() {
