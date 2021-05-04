@@ -1,11 +1,9 @@
 package com.example.deforestationdetectionmobile.presentation.iot
 
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ListView
 import android.widget.SimpleAdapter
-import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.NetworkResponse
 import com.android.volley.Request
 import com.android.volley.Response
@@ -19,8 +17,7 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-
-class IotsList : AppCompatActivity() {
+class AllIotsList : AppCompatActivity() {
 
     private lateinit var listView: ListView
 
@@ -28,9 +25,9 @@ class IotsList : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_iots_list)
+        setContentView(R.layout.activity_all_iots_list)
 
-        listView = findViewById(R.id.iots_list)
+        listView = findViewById(R.id.all_iots_list)
     }
 
     override fun onResume() {
@@ -39,7 +36,7 @@ class IotsList : AppCompatActivity() {
     }
 
     private fun getIots(acceptRefresh: Boolean) {
-        val url = "https://deforestation-proj.herokuapp.com/iot/signal"
+        val url = "https://deforestation-proj.herokuapp.com/iots"
 
         val jsonResponses: MutableList<Iot> = ArrayList()
 
@@ -128,10 +125,5 @@ class IotsList : AppCompatActivity() {
             intArrayOf(android.R.id.text1, android.R.id.text2)
         )
         listView.adapter = adapter
-    }
-
-    fun addNew(view: View) {
-        val intent = Intent(this, AddActivity::class.java)
-        startActivity(intent)
     }
 }

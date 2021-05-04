@@ -16,4 +16,6 @@
     <string name="group_is_added">Групу додано</string>
     <string name="failed_suitable">Не вдалося! Відступите принаймні на</string>
     <string name="meters">метрів</string>
+    <string name="active_iots">Активні IoT</string>
+    <string name="all_iots">Усі IoT</string>
 </resources>

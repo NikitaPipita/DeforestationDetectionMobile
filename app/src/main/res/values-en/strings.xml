@@ -16,4 +16,6 @@
     <string name="group_is_added">Group is added</string>
     <string name="failed_suitable">Failed! Step back at least on</string>
     <string name="meters">meters</string>
+    <string name="active_iots">Active IoTs</string>
+    <string name="all_iots">All IoTs</string>
 </resources>

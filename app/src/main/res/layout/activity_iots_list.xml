@@ -4,21 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.iot.IotsList">
+    tools:context=".presentation.iot.ActiveIotsList">
 
     <ListView
-        android:id="@+id/iots_list"
+        android:id="@+id/active_iots_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_gravity="bottom|start"
         android:layout_margin="16dp"
-        app:layout_anchor="@id/iots_list"
+        app:layout_anchor="@id/active_iots_list"
         app:layout_anchorGravity="bottom|left|start"
         android:onClick="addNew"
         android:src="@drawable/add_icon"

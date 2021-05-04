@@ -12,7 +12,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.deforestationdetectionmobile.models.UserInfo
-import com.example.deforestationdetectionmobile.presentation.iot.IotsList
+import com.example.deforestationdetectionmobile.presentation.iot.ActiveIotsList
+import com.example.deforestationdetectionmobile.presentation.navigation.MainNavigationPage
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
@@ -63,8 +64,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun enterFunctionality() {
         if (UserInfo.role != "locked") {
-            val intent = Intent(this, IotsList::class.java)
-            startActivity(intent)
+            if (UserInfo.role == "employee" || UserInfo.role == "observer") {
+                val intent = Intent(this, ActiveIotsList::class.java)
+                startActivity(intent)
+            } else if (UserInfo.role == "admin" || UserInfo.role == "manager") {
+                val intent = Intent(this, MainNavigationPage::class.java)
+                startActivity(intent)
+            }
         }
     }
 }
