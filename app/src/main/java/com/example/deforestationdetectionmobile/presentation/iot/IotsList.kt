@@ -109,8 +109,15 @@ class IotsList : AppCompatActivity() {
         val iotsInfo: MutableList<HashMap<String, String>> = ArrayList()
         for (iot in iots) {
             val map: HashMap<String, String> = HashMap()
-            map["position"] = "Longitude: " + iot.longitude.toString() + " Latitude: " + iot.latitude.toString()
-            map["state"] = iot.state
+            map["position"] = getString(R.string.longitude) + ": " + iot.longitude.toString() + " " +
+                    getString(R.string.latitude) + ": " + iot.latitude.toString()
+            if (iot.state == "nothing") {
+                map["state"] = getString(R.string.nothing)
+            } else if (iot.state == "active"){
+                map["state"] = getString(R.string.active)
+            } else if (iot.state == "lost"){
+                map["state"] = getString(R.string.lost)
+            }
             iotsInfo.add(map)
         }
         val adapter = SimpleAdapter(

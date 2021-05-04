@@ -2,7 +2,6 @@ package com.example.deforestationdetectionmobile.presentation.iot
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import com.android.volley.NetworkResponse
@@ -78,7 +77,7 @@ class AddIot : AppCompatActivity() {
                         response["minimum_distance_to_move_away"] as Double
                     Toast.makeText(
                         applicationContext,
-                        "Failed! Step back at least $minimumDistanceToMoveAway meters",
+                        getString(R.string.failed_suitable) + " $minimumDistanceToMoveAway " + getString(R.string.meters),
                         Toast.LENGTH_LONG
                     ).show()
                 }

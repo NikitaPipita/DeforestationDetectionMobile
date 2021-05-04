@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Deforestation Detection Mobile</string>
+    <string name="email">Електронна пошта</string>
+    <string name="password">Пароль</string>
+    <string name="login">Увійти</string>
+    <string name="longitude">Довгота</string>
+    <string name="latitude">Широта</string>
+    <string name="group">Група</string>
+    <string name="check">Перевірити</string>
+    <string name="add">Додати</string>
+    <string name="add_group">Додати групу</string>
+    <string name="add_iot">Додати IoT</string>
+    <string name="nothing">нічого</string>
+    <string name="active">активний</string>
+    <string name="lost">загублений</string>
+    <string name="group_is_added">Групу додано</string>
+    <string name="failed_suitable">Не вдалося! Відступите принаймні на</string>
+    <string name="meters">метрів</string>
+</resources>

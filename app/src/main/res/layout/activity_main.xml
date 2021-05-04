@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
             android:inputType="textEmailAddress"
-            android:hint="Email"/>
+            android:hint="@string/email"/>
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
             android:inputType="textPassword"
-            android:hint="Password"/>
+            android:hint="@string/password"/>
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="login"
-            android:text="Login"/>
+            android:text="@string/login"/>
 
     </LinearLayout>
 

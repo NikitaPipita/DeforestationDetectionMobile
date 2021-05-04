@@ -45,7 +45,11 @@ class AddActivity : AppCompatActivity() {
         val jsonRequest = object : JsonObjectRequest(
             Request.Method.POST, url, postData,
             Response.Listener<JSONObject> { response ->
-                Toast.makeText(applicationContext, "Group is added", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    applicationContext,
+                    getString(R.string.group_is_added),
+                    Toast.LENGTH_LONG
+                ).show()
             },
             Response.ErrorListener { error ->
                 error.printStackTrace()

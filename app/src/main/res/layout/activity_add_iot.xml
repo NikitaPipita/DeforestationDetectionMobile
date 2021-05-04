@@ -17,14 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
-            android:hint="Longitude"/>
+            android:hint="@string/longitude"/>
 
         <EditText
             android:id="@+id/latitudeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
-            android:hint="Latitude"/>
+            android:hint="@string/latitude"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -43,7 +43,7 @@
             android:id="@+id/groupText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Group"/>
+            android:text="@string/group"/>
 
     </LinearLayout>
 
@@ -59,14 +59,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onCheckPosition"
-            android:text="Check"/>
+            android:text="@string/check"/>
 
         <Button
             android:id="@+id/addIotAnywayButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onAddIot"
-            android:text="Add"
+            android:text="@string/add"
             android:visibility="gone"/>
 
     </LinearLayout>
