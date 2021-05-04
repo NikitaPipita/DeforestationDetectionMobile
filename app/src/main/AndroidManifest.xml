@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DeforestationDetectionMobile">
-        <activity android:name=".presentation.iot.AllIotsList"></activity>
+        <activity android:name=".presentation.iot.ChangeIotState"></activity>
+        <activity android:name=".presentation.iot.AllIotsList" />
         <activity android:name=".presentation.navigation.MainNavigationPage" />
         <activity android:name=".presentation.iot.AddIot" />
         <activity android:name=".presentation.iot.AddActivity" />

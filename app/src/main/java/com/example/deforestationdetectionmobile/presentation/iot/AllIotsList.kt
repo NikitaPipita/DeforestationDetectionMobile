@@ -1,7 +1,9 @@
 package com.example.deforestationdetectionmobile.presentation.iot
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import com.android.volley.NetworkResponse
@@ -28,6 +30,14 @@ class AllIotsList : AppCompatActivity() {
         setContentView(R.layout.activity_all_iots_list)
 
         listView = findViewById(R.id.all_iots_list)
+        listView.onItemClickListener =
+            AdapterView.OnItemClickListener {
+                    parent, view, position, id ->
+                val intent = Intent(this, ChangeIotState::class.java).apply {
+                    putExtra("iot_id", iots[id.toInt()].id)
+                }
+                startActivity(intent)
+            }
     }
 
     override fun onResume() {

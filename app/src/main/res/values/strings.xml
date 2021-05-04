@@ -18,4 +18,5 @@
     <string name="meters">meters</string>
     <string name="active_iots">Active IoTs</string>
     <string name="all_iots">All IoTs</string>
+    <string name="change">Change</string>
 </resources>

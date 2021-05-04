@@ -18,4 +18,5 @@
     <string name="meters">метрів</string>
     <string name="active_iots">Активні IoT</string>
     <string name="all_iots">Усі IoT</string>
+    <string name="change">Змінити</string>
 </resources>
